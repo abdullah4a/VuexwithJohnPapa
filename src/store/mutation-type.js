@@ -1,0 +1,1 @@
+export const Get_Heroes = 'getHeroes';
