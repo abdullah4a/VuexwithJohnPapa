@@ -31,15 +31,15 @@ const actions = {
         const heroes = await dataService.getHeroes();
         commit(Get_Heroes, heroes)
     },
-    AddheroAction({ commit }, hero) {
+    async AddheroAction({ commit }, hero) {
         const addedhero = await dataService.deleteHero(hero)
         commit(Delete_Hero, addedhero);
     },
-    DeleteHeroAction({ commit }, hero) {
+    async DeleteHeroAction({ commit }, hero) {
         const deletedhero = await dataService.deleteHero(hero)
         commit(Delete_Hero, deletedhero)
     },
-    UpdateHeroAction({ commit }, hero) {
+    async UpdateHeroAction({ commit }, hero) {
         const updatedHero = await dataService.updateHero(hero);
         commit(Update_Hero, updatedHero)
     }
