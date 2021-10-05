@@ -49,8 +49,9 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import { dataService } from '../shared';
-
+import { cloneDeep } from 'lodash';
 export default {
   name: 'HeroDetail',
   props: {
@@ -73,10 +74,12 @@ export default {
         description: '',
       };
     } else {
-      this.hero = await dataService.getHero(this.id);
+      // this.hero = await dataService.getHero(this.id);
+      this.hero = cloneDeep(this.getHeroesbyID(this.id));
     }
   },
   computed: {
+    ...mapGetters(['getHeroesbyID']),
     isAddMode() {
       return !this.id;
     },
